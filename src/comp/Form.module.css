@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    width: 55%;
+    margin: 80px auto;
+
+}
+
+.container input {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-bottom: solid 3px #70848b;
+    outline: none;
+    padding-left: 8px;
+    font-size: 1.2em;
+}
+
+.span button {
+    border: none;
+    border-bottom: solid 3px #70848b;
+    background-color: ghostwhite;
+    font-size: 30px;
+    line-height: 30px;
+    width: 40px;
+    height: 40px;
+    font-weight: bold;
+    color: #70848b;
+
+}
+
+.span button:hover {
+    border-bottom: solid 3px rgb(0, 212, 0);
+    color: rgb(0, 212, 0);
+}
+
+
+ @media (min-width: 1100px)
+{
+    .container {
+        width: 40%;  
+    }
+} 

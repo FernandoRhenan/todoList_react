@@ -1,25 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { useState, useEffect } from 'react'
+import Form from './comp/Form'
+import List from './comp/List'
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+  const [list, setList] = useState([])
+
+  const childToParent = (childData) => {
+    setList(childData);
+  }
+
+  function updateList() {
+    fetch('http://localhost:5000/list', {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(res => res.json()).then((data) => {
+      setList(data)
+    }).catch(err => console.log(err))
+  }
+
+
+  function removeItem(li) {
+
+    let updatedList = list.filter((item)=>{
+      return item.id != li.id
+    })
+     setList(updatedList)
+  }
+
+
+  useEffect(() => {
+
+    fetch('http://localhost:5000/list', {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(res => res.json()).then((data) => {
+      setList(data)
+    }).catch(err => console.log(err))
+
+  }, [])
+
+
+
+
+  return (
+    <div>
+      <Form list={list} childToParent={childToParent} />
+      <List list={list} removeItem={removeItem} updateList={updateList}/>
+    </div>
+  )
+
+
+}
+export default App

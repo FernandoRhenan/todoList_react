@@ -1,0 +1,98 @@
+.container {
+    word-break: break-all;
+    display: block;
+    width: 80%;
+    margin: auto;
+}
+
+@keyframes list {
+    0% {
+        left: 0px;
+    }
+
+    25% {
+        left: -1px;
+    }
+
+    50% {
+        left: 0px;
+    }
+
+    75% {
+        left: 1px;
+    }
+
+    100% {
+        left: 0px;
+    }
+}
+
+ul {
+    margin-bottom: 80px;
+}
+
+.notDone {
+    border: 1px solid ghostwhite;
+    background-color: ghostwhite;
+    box-shadow: 5px 5px 5px #70848b;
+    font-size: 1.3em;
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+    padding-bottom: 0px;
+    margin: 10px;
+    line-height: 30px;
+}
+
+li:hover {
+    position: relative;
+    animation-name: list;
+    animation-duration: 250ms;
+}
+
+.btns {
+    font-size: 1.4em;
+    color: #70848b;
+    display: flex;
+    flex-direction: row;
+    
+
+}
+
+.removeBtn:hover {
+    transition: 150ms;
+    color: red;
+}
+
+.checkedBtn {
+    color: rgb(0, 190, 0);
+    transition: 150ms;
+}
+
+.checkBtn:hover {
+    transition: 150ms;
+    color: rgb(0, 190, 0);
+}
+
+
+.done {
+    border: 1px solid ghostwhite;
+    background-color: ghostwhite;
+    box-shadow: 5px 5px 5px #70848b;
+    font-size: 1.3em;
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+    padding-bottom: 0px;
+    margin: 10px;
+    line-height: 30px;
+    text-decoration: line-through;
+    color: grey;
+}
+
+@media (min-width: 1100px)
+{
+    .container {
+        width: 60%;  
+    }
+}
